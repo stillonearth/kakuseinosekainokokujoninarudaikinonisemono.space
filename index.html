@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      :root {
+        /* Consider adjusting this color to match your splash screen! */
+        --loading-screen-bg-color: #282828;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+      }
+
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+      }
+
+      .center {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      #loading-screen {
+        background-color: var(--loading-screen-bg-color);
+      }
+
+      .spinner {
+        width: 128px;
+        height: 128px;
+        border: 64px solid transparent;
+        border-bottom-color: #ececec;
+        border-right-color: #b2b2b2;
+        border-top-color: #787878;
+        border-radius: 50%;
+        box-sizing: border-box;
+        animation: spin 1.2s linear infinite;
+      }
+
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      #bevy {
+        /* Hide Bevy app before it loads */
+        height: 0;
+      }
+    </style>
+    <script type="module">
+      // taken from https://developer.chrome.com/blog/web-audio-autoplay/#moving-forward
+      (function () {
+        // An array of all contexts to resume on the page
+        const audioContextList = [];
+
+        // An array of various user interaction events we should listen for
+        const userInputEventNames = [
+          "click",
+          "contextmenu",
+          "auxclick",
+          "dblclick",
+          "mousedown",
+          "mouseup",
+          "pointerup",
+          "touchend",
+          "keydown",
+          "keyup",
+        ];
+
+        // A proxy object to intercept AudioContexts and
+        // add them to the array for tracking and resuming later
+        self.AudioContext = new Proxy(self.AudioContext, {
+          construct(target, args) {
+            const result = new target(...args);
+            audioContextList.push(result);
+            return result;
+          },
+        });
+
+        // To resume all AudioContexts being tracked
+        function resumeAllContexts(event) {
+          let count = 0;
+
+          audioContextList.forEach((context) => {
+            if (context.state !== "running") {
+              context.resume();
+            } else {
+              count++;
+            }
+          });
+
+          // If all the AudioContexts have now resumed then we
+          // unbind all the event listeners from the page to prevent
+          // unnecessary resume attempts
+          if (count == audioContextList.length) {
+            userInputEventNames.forEach((eventName) => {
+              document.removeEventListener(eventName, resumeAllContexts);
+            });
+          }
+        }
+
+        // We bind the resume function for each user interaction
+        // event on the page
+        userInputEventNames.forEach((eventName) => {
+          document.addEventListener(eventName, resumeAllContexts);
+        });
+      })();
+    </script>
+
+
+
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Kakusei no Sekai no Kokujo ni Naru Daiki no Nisemono: Hikari no Aida no
+      Visual Novel Shūka, Dokoro de No Hanashi ga Aratteku, Kekka, Koibito, To
+      Shinwa no Seireki Ochi | An Epic Quest for Destiny in the Hidden Realms of
+      Deception and Betrayal: The Deck of Deception's Visual Novel Adventure,
+      Where Every Turn of the Card Brings New Challenges, Twists, and Turns in a
+      World Governed by Skill, Strategy, and Artificial Intelligence |
+      欺瞞と裏切りの隠された領域での運命の壮大な探求:
+      スキル、戦略、人工知能が支配する世界で、カードを回すたびに新たな挑戦、紆余曲折が起こる
+    </title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
