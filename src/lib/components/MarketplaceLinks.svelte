@@ -17,7 +17,7 @@
     }
   ];
 </script>
-
+<!-- 
 <section class="bg-gray-800 rounded-lg p-6 mb-8">
   <h2 class="text-2xl font-bold mb-6 text-purple-400">NFT Marketplaces</h2>
   <div class="grid md:grid-cols-3 gap-4">
@@ -33,4 +33,4 @@
       </a>
     {/each}
   </div>
-</section>
+</section> -->

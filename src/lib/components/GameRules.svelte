@@ -2,10 +2,11 @@
   const rules = {
     overview: "The Deck of Deception combines poker strategy with visual novel storytelling, where your decisions shape the narrative and mint unique NFTs.",
     gameplay: [
-      "Play poker hands to generate story elements",
-      "Different hand combinations unlock various character traits and story paths",
-      "Win special hands to mint rare narrative cards",
-      "Combine cards to create unique story arcs"
+      "Play poker solitaire to earn game currency.",
+      "Spend currency to buy story cards that shape the plot.",
+      "Combine story cards to create unique plot twists.",
+      // "Win special hands to mint rare narrative cards",
+      // "Combine cards to create unique story arcs"
     ],
     nftTypes: {
       stories: "Complete story arcs become Story NFTs, each unique based on your choices",
@@ -34,7 +35,7 @@
       </ul>
     </div>
 
-    <div>
+    <!-- <div>
       <h3 class="text-xl font-semibold mb-3">NFT Types</h3>
       <div class="grid md:grid-cols-3 gap-4">
         <div class="bg-gray-700 p-4 rounded">
@@ -56,5 +57,5 @@
       <h3 class="text-xl font-semibold mb-3">Rarity System</h3>
       <p class="text-gray-300">{rules.rarity}</p>
     </div>
-  </div>
+  </div> -->
 </section>

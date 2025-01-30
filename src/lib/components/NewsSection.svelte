@@ -8,23 +8,11 @@
 
   const newsItems: NewsItem[] = [
     {
-      date: '2024-03-20',
-      title: 'New Character Collection Launch',
-      content: 'Introducing our latest character collection featuring legendary poker masters from different dimensions.',
-      link: '#'
+      date: '2025-01-30',
+      title: 'WASM version port of GameOff2024 Jam version lanuch',
+      content: 'Introducing lanuch of browser version of GameOff2024 Jam version of Deck of Deception. Play in browser and shape your destity, just remember that once you go bankrup you die. Just kidding! Or not?!',
+      // link: '#'
     },
-    {
-      date: '2024-03-15',
-      title: 'Community Tournament Announcement',
-      content: 'Join our monthly tournament to win exclusive narrative cards and compete for the grand prize.',
-      link: '#'
-    },
-    {
-      date: '2024-03-10',
-      title: 'Partnership with OpenSea',
-      content: 'Our collection is now officially listed on OpenSea with verified status.',
-      link: 'https://opensea.io/collection/deck-of-deception'
-    }
   ];
 </script>
 

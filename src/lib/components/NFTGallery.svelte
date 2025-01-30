@@ -8,6 +8,14 @@
   let activeTab: 'stories' | 'characters' | 'cards' = 'stories';
 </script>
 
+<p>
+  Onchain version of Cards of Destity coming soon. 
+  Mint your stories as NFTs. 
+  You are the creator! 
+  You are the narrator!
+</p>
+
+<!-- 
 <div class="w-full max-w-6xl mx-auto p-4">
   <div class="flex space-x-4 mb-6">
     <button
@@ -67,4 +75,4 @@
       {/each}
     {/if}
   </div>
-</div>
+</div> -->
