@@ -13,6 +13,12 @@
       content: 'Introducing lanuch of browser version of GameOff2024 Jam version of Deck of Deception. Play in browser and shape your destity, just remember that once you go bankrup you die. Just kidding! Or not?!',
       // link: '#'
     },
+    {
+      date: '2025-02-08',
+      title: 'Updated version of GameOff2024 Jam version lanuch',
+      content: 'Some of the bugs are fixed.',
+      // link: '#'
+    },
   ];
 </script>
 
