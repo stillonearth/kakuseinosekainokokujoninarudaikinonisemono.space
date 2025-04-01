@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { connected, connectWallet } from '../stores/web3Store';
+  import { connected, connectWallet, account } from '../stores/web3Store';
 </script>
 
 <header class="bg-gray-800 p-4 border-b border-gray-700">
@@ -24,7 +24,7 @@
           on:click={connectWallet}
           class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded"
         >
-          {$connected ? 'Connected' : 'Connect Wallet'}
+          {$connected ? 'Connected to ' + $account : 'Connect Wallet'}
         </button>
       </div>
     </div>

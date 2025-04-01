@@ -1,19 +1,17 @@
-import { writable } from 'svelte/store';
-import type { Web3Provider } from '@ethersproject/providers';
-
-export const provider = writable<Web3Provider | null>(null);
-export const account = writable<string | null>(null);
-export const connected = writable<boolean>(false);
-
+import { writable } from "/node_modules/.vite/deps/svelte_store.js?v=af51a6a9";
+export const provider = writable(null);
+export const account = writable(null);
+export const connected = writable(false);
 export const connectWallet = async () => {
-  if (typeof window.ethereum !== 'undefined') {
+  if (typeof window.ethereum !== "undefined") {
     try {
-      await window.ethereum.request({ method: 'eth_requestAccounts' });
+      await window.ethereum.request({ method: "eth_requestAccounts" });
       connected.set(true);
-      const accounts = await window.ethereum.request({ method: 'eth_accounts' });
+      const accounts = await window.ethereum.request({ method: "eth_accounts" });
       account.set(accounts[0]);
+      window.connectedWallet = accounts[0];
     } catch (error) {
-      console.error('User rejected connection:', error);
+      console.error("User rejected connection:", error);
     }
   }
 };

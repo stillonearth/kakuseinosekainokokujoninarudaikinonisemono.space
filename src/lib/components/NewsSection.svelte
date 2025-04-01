@@ -8,16 +8,28 @@
 
   const newsItems: NewsItem[] = [
     {
-      date: '2025-01-30',
-      title: 'WASM version port of GameOff2024 Jam version lanuch',
-      content: 'Introducing lanuch of browser version of GameOff2024 Jam version of Deck of Deception. Play in browser and shape your destity, just remember that once you go bankrup you die. Just kidding! Or not?!',
-      // link: '#'
+      date: "2025-01-30",
+      title: "WASM Version Release: GameOff2024 Jam Edition Now in the Browser",
+      content:
+        "We’re excited to announce the official launch of the browser-based version of the GameOff2024 Jam edition of *Deck of Deception*. Play directly in your web browser and shape your destiny—just remember, once you go bankrupt, it's game over! Well, maybe... or maybe not?! Either way, the adventure awaits.",
     },
     {
-      date: '2025-02-08',
-      title: 'Updated version of GameOff2024 Jam version lanuch',
-      content: 'Some of the bugs are fixed.',
-      // link: '#'
+      date: "2025-02-08",
+      title: "Updated Version of GameOff2024 Jam Edition Released",
+      content:
+        "We’ve released an updated version of the GameOff2024 Jam edition to address and fix some bugs. We’re committed to ensuring a smooth and enjoyable experience for all players.",
+    },
+    {
+      date: "2025-03-07",
+      title: "Monthly Update: New Features and Enhancements",
+      content:
+        "This month’s update brings significant improvements, including the addition of a main menu, in-game menus, and various effects. Stay tuned for more exciting updates coming soon!",
+    },
+    {
+      date: "2025-03-16",
+      title: "Initial Soneium Blockchain Support Added",
+      content:
+        "We’re thrilled to announce initial support for the Soneum blockchain in *Deck of Deception*. Stories are now being saved directly to the blockchain. Currently available on the testnet while the game remains in active development.",
     },
   ];
 </script>
@@ -31,7 +43,9 @@
         <h3 class="text-xl font-semibold mb-2">{item.title}</h3>
         <p class="text-gray-300 mb-2">{item.content}</p>
         {#if item.link}
-          <a href={item.link} class="text-purple-400 hover:text-purple-300">Read more →</a>
+          <a href={item.link} class="text-purple-400 hover:text-purple-300"
+            >Read more →</a
+          >
         {/if}
       </div>
     {/each}
