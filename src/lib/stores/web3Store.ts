@@ -1,6 +1,6 @@
 import { writable } from 'svelte/store';
 import { ethers } from 'ethers';
-import { getNFTCount } from "../blockchain";
+import { nftBalanceOf } from "../blockchain";
 
 export const provider = writable(null);
 export const account = writable(null);
@@ -44,7 +44,7 @@ export const connectWallet = async () => {
       provider.set(ethProvider);
 
       // here's how you work in nft
-      let count = await getNFTCount(ethProvider, accounts[0]);
+      let count = await nftBalanceOf(ethProvider, accounts[0]);
 
     } catch (error) {
       console.error("User rejected connection:", error);

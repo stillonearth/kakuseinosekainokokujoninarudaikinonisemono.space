@@ -40,7 +40,7 @@
   <section id="news" class="bg-gray-800 rounded-lg p-6 mb-8">
     <h2 class="text-2xl font-bold mb-6 text-purple-400">Latest News</h2>
     <div class="space-y-6">
-      {#each newsItems as item}
+      {#each newsItems.reverse() as item}
         <div class="border-l-4 border-purple-600 pl-4">
           <div class="text-sm text-gray-400">{item.date}</div>
           <h3 class="text-xl font-semibold mb-2">{item.title}</h3>

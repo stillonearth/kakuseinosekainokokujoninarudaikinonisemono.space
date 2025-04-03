@@ -1,10 +1,9 @@
 export interface Story {
-  id: string;
-  title: string;
   description: string;
-  imageUrl: string;
-  author: string;
-  tokenId: string;
+  image: string;
+  name: string,
+  poster: string;
+  scenario: string;
 }
 
 export interface Character {

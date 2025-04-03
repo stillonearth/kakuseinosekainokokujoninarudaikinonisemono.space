@@ -50,13 +50,18 @@
 
     <MarketplaceLinks />
 
-    <NFTGallery
-      stories={sampleData.stories}
-      visible={$activeSection == "nfts"}
-    />
+    <NFTGallery visible={$activeSection == "nfts"} />
 
     <GameRules visible={$activeSection == "rules"} />
   </div>
+  <center>
+    <a href="https://soneium.org/" style="font-family:'Courier New', Courier, monospace">
+      2025 &copy; Shizuka Zaibatsu
+      <br /> <br /> 
+      <img src="/public/soneium.webp" alt="soneium" style="height: 70px" />
+      
+    </a>
+  </center>
 </main>
 
 <style>
