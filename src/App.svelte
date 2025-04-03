@@ -1,41 +1,42 @@
 <script lang="ts">
-  import Header from './lib/components/Header.svelte';
-  import GamePlaceholder from './lib/components/GamePlaceholder.svelte';
-  import NFTGallery from './lib/components/NFTGallery.svelte';
-  import NewsSection from './lib/components/NewsSection.svelte';
-  import GameRules from './lib/components/GameRules.svelte';
-  import MarketplaceLinks from './lib/components/MarketplaceLinks.svelte';
+  import Header from "./lib/components/Header.svelte";
+  import GamePlaceholder from "./lib/components/GamePlaceholder.svelte";
+  import NFTGallery from "./lib/components/NFTGallery.svelte";
+  import NewsSection from "./lib/components/NewsSection.svelte";
+  import GameRules from "./lib/components/GameRules.svelte";
+  import MarketplaceLinks from "./lib/components/MarketplaceLinks.svelte";
+  import { activeSection } from "./lib/stores/navigationStore";
 
   // Sample data - in production, this would come from your smart contract
   const sampleData = {
     stories: [
       {
-        id: '1',
-        title: 'The Poker King\'s Tale',
-        description: 'A story of high stakes and higher dreams',
-        imageUrl: 'https://placeholder.co/400',
-        author: '0x123...',
-        tokenId: '1'
-      }
+        id: "1",
+        title: "The Poker King's Tale",
+        description: "A story of high stakes and higher dreams",
+        imageUrl: "https://placeholder.co/400",
+        author: "0x123...",
+        tokenId: "1",
+      },
     ],
     characters: [
       {
-        id: '1',
-        name: 'Jack Hearts',
-        imageUrl: 'https://placeholder.co/400',
-        traits: ['Mysterious', 'Strategic', 'Bold'],
-        tokenId: '1'
-      }
+        id: "1",
+        name: "Jack Hearts",
+        imageUrl: "https://placeholder.co/400",
+        traits: ["Mysterious", "Strategic", "Bold"],
+        tokenId: "1",
+      },
     ],
     narrativeCards: [
       {
-        id: '1',
-        type: 'event',
-        content: 'A mysterious stranger joins the table...',
-        imageUrl: 'https://placeholder.co/400',
-        tokenId: '1'
-      }
-    ]
+        id: "1",
+        type: "event",
+        content: "A mysterious stranger joins the table...",
+        imageUrl: "https://placeholder.co/400",
+        tokenId: "1",
+      },
+    ],
   };
 </script>
 
@@ -43,22 +44,18 @@
   <Header />
 
   <div class="max-w-7xl mx-auto py-8 px-4">
-    <GamePlaceholder />
+    <GamePlaceholder visible={$activeSection == "game"} />
 
-    <NewsSection />
-    
+    <NewsSection visible={$activeSection == "news"} />
+
     <MarketplaceLinks />
 
-    <section id="collection" class="mb-12">
-      <h2 class="text-3xl font-bold mb-8 text-purple-400">Your NFT Collection</h2>
-      <NFTGallery
-        stories={sampleData.stories}
-        characters={sampleData.characters}
-        narrativeCards={sampleData.narrativeCards}
-      />
-    </section>
+    <NFTGallery
+      stories={sampleData.stories}
+      visible={$activeSection == "nfts"}
+    />
 
-    <GameRules />
+    <GameRules visible={$activeSection == "rules"} />
   </div>
 </main>
 

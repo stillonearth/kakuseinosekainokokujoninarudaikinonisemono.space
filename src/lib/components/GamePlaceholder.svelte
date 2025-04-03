@@ -1,4 +1,6 @@
 <script lang="ts">
+  export let visible;
+
   import init, * as bindings from "./../../kakuseinosekainokokujoninarudaikinonisemono";
 
   // This component will be replaced with the actual WASM game implementation
@@ -7,7 +9,7 @@
   async function startGame() {
     gameStarted = true;
 
-    document.getElementById("loading-screen").style.display = 'none';
+    document.getElementById("loading-screen").style.display = "none";
 
     const observer = new MutationObserver(() => {
       const bevy = document.getElementById("bevy");
@@ -25,36 +27,33 @@
 
     window.wasmBindings = bindings;
     dispatchEvent(
-      new CustomEvent("TrunkApplicationStarted", { detail: { wasm } })
+      new CustomEvent("TrunkApplicationStarted", { detail: { wasm } }),
     );
   }
 </script>
 
-<section id="game" class="bg-gray-800 rounded-lg p-6 mb-8">
-  <h2 class="text-2xl font-bold mb-4 text-white">Poker Visual Novel Game</h2>
-  {#if !gameStarted}
-    <button
-      on:click={startGame}
-      class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"
+{#if visible}
+  <section id="game" class="bg-gray-800 rounded-lg p-6 mb-8">
+    {#if !gameStarted}
+      <button
+        on:click={startGame}
+        class="bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded"
+      >
+        Start Game
+      </button>
+    {/if}
+
+    <div
+      class="bg-gray-700 p-8 rounded-lg text-center {gameStarted
+        ? ''
+        : 'hidden'}"
+      style="overflow: hidden"
     >
-      Start Game
-    </button>
-  {/if}
+      <div id="loading-screen" class="center">
+        <span class="spinner"></span>
+      </div>
 
-  <div
-    class="bg-gray-700 p-8 rounded-lg text-center {gameStarted ? '' : 'hidden'}" 
-    style="overflow: hidden"
-  >
-    <div id="loading-screen" class="center">
-      <span class="spinner"></span>
+      <canvas id="bevy"> Javascript and canvas support is required </canvas>
     </div>
-
-    <canvas id="bevy"> Javascript and canvas support is required </canvas>
-  </div>
-</section>
-
-<style>
-  .hidden {
-    display: none;
-  }
-</style>
+  </section>
+{/if}
