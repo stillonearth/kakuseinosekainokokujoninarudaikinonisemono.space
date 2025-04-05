@@ -54,12 +54,9 @@
 
     <GameRules visible={$activeSection == "rules"} />
   </div>
-  <center>
+  <center style="margin-top: -30px; padding-bottom: 30px;">
     <a href="https://soneium.org/" style="font-family:'Courier New', Courier, monospace">
-      2025 &copy; Shizuka Zaibatsu
-      <br /> <br /> 
       <img src="/public/soneium.webp" alt="soneium" style="height: 70px" />
-      
     </a>
   </center>
 </main>

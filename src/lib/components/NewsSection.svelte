@@ -33,6 +33,12 @@
       content:
         "We’re thrilled to announce initial support for the Soneum blockchain in *Deck of Deception*. Stories are now being saved directly to the blockchain. Currently available on the testnet while the game remains in active development.",
     },
+    {
+      date: "2025-04-06",
+      title: "Mintend NFT Galley",
+      content:
+        "NFTs are minted to test network and you can view all of Game's NFTs on Galley section.",
+    },
   ];
 </script>
 

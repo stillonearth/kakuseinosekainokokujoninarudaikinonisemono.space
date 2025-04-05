@@ -24,7 +24,7 @@
 </script>
 
 {#if visible}
-  <section id="rules" class="bg-gray-800 rounded-lg p-6">
+  <section id="rules" class="bg-gray-800 rounded-lg p-6 mb-8">
     <h2 class="text-2xl font-bold mb-6 text-purple-400">
       Game Rules & Mechanics
     </h2>

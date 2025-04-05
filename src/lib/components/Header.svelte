@@ -17,7 +17,6 @@
         Betrayal: The Deck of Deception's Visual Novel Adventure, Where Every
         Turn of the Card Brings New Challenges, Twists, and Turns in a World
         Governed by Skill, Strategy, and Artificial Intelligence
-        {$activeSection}
       </h1>
       <p class="text-xl md:text-2xl text-gray-400 mb-6 font-japanese">
         欺瞞と裏切りの隠された領域での運命の壮大な探求:

@@ -1,4 +1,5 @@
 <script lang="ts">
+
   import { onMount } from "svelte";
   import { provider, account } from "../stores/web3Store";
   import { nfts } from "../stores/nftStore";
@@ -32,7 +33,7 @@
       }
     }
 
-    nfts.update(value => stories);
+    nfts.update((value) => stories);
   }
 
   async function loadAllNfts() {
@@ -53,7 +54,7 @@
       }
     }
 
-    nfts.update(value => stories);
+    nfts.update((value) => stories);
   }
 
   provider.subscribe(async (value) => {
@@ -68,23 +69,26 @@
 {#if visible}
   <section id="collection" class="bg-gray-800 rounded-lg p-6 mb-8">
     <h2 class="text-2xl font-bold mb-6 text-purple-400">Story NFTs</h2>
-
-    <div class="w-full max-w-6xl mx-auto p-4">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {#each $nfts as story}
-          <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg">
-            <img
-              src={story.image}
-              alt={story.name}
-              class="w-full h-48 object-cover"
-            />
-            <div class="p-4">
-              <h3 class="text-xl font-bold">{story.name}</h3>
-              <p class="text-gray-400">{story.description}</p>
+    {#if !!$account}
+      <div class="w-full max-w-6xl mx-auto p-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {#each $nfts as story}
+            <div class="bg-gray-800 rounded-lg overflow-hidden shadow-lg">
+              <img
+                src={story.image}
+                alt={story.name}
+                class="w-full h-48 object-cover"
+              />
+              <div class="p-4">
+                <h3 class="text-xl font-bold">{story.name}</h3>
+                <p class="text-gray-400">{story.description}</p>
+              </div>
             </div>
-          </div>
-        {/each}
+          {/each}
+        </div>
       </div>
-    </div>
+    {:else}
+      <p>Connect a <a href="https://metamask.io/">wallet</a> to view NFTs</p>
+    {/if}
   </section>
 {/if}
