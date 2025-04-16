@@ -7,6 +7,7 @@
 
   // This component will be replaced with the actual WASM game implementation
   let gameStarted = false;
+  window.gameMode = "game";
 
   async function startGame() {
     gameStarted = true;
@@ -48,9 +49,7 @@
     {/if}
 
     <div
-      class="rounded-lg text-center {gameStarted
-        ? ''
-        : 'hidden'}"
+      class="rounded-lg text-center {gameStarted ? '' : 'hidden'}"
       style="overflow: hidden"
     >
       <canvas id="bevy">
