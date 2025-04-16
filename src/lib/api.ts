@@ -6,6 +6,7 @@ export async function fetchNFTData(nftId: any) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
         const data = await response.json();
+        data.id = nftId;
         return data;
     } catch (error) {
         console.error('Error fetching NFT data:', error);

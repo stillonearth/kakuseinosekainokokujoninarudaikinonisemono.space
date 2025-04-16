@@ -7,7 +7,6 @@
 
   // This component will be replaced with the actual WASM game implementation
   let gameStarted = false;
-  window.gameMode = "game";
 
   async function startGame() {
     gameStarted = true;

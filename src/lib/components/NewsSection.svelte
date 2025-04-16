@@ -39,6 +39,12 @@
       content:
         "NFTs are minted to test network and you can view all of Game's NFTs on Galley section.",
     },
+    {
+      date: "2025-04-16",
+      title: "Visual Novel Player",
+      content:
+        "Display Visual Novels that were minted by you or other storytellers.",
+    },
   ];
 </script>
 
